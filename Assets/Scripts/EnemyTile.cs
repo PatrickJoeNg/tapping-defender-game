@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyTile : MonoBehaviour
 {
+    [SerializeField] int scoreValue = 50;
     [SerializeField] float moveSpeed = 2f;
 
     Rigidbody2D rb;
@@ -14,10 +15,16 @@ public class EnemyTile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            Debug.Log("Diamond clicked");
+            Destroy(gameObject);
+            SubFromScore(scoreValue);
+        }
     }
 
     private void FixedUpdate()
@@ -28,5 +35,9 @@ public class EnemyTile : MonoBehaviour
     void moveDiamond()
     {
         rb.velocity = -transform.up * moveSpeed * Time.deltaTime;
+    }
+    void SubFromScore(int score)
+    {
+        FindObjectOfType<GameSession>().SubtractScore(score);
     }
 }

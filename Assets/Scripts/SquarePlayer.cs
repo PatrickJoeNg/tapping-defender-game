@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SquarePlayer : MonoBehaviour
 {
+    [SerializeField] int scoreValue = 100;
     [SerializeField] float moveSpeed = 2f;
     Rigidbody2D rb;
 
@@ -14,11 +15,18 @@ public class SquarePlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            Debug.Log("Square clicked");
+            Destroy(gameObject);
+            AddToScore(scoreValue);
+        }     
     }
+
     private void FixedUpdate()
     {
         moveSquare();
@@ -26,5 +34,9 @@ public class SquarePlayer : MonoBehaviour
     void moveSquare()
     {
         rb.velocity = -transform.up * moveSpeed * Time.deltaTime;
+    }
+    void AddToScore(int score)
+    {
+        FindObjectOfType<GameSession>().AddScore(score);
     }
 }
