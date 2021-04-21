@@ -6,8 +6,8 @@ public class ShapeSpawner : MonoBehaviour
 {
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 5f;
-    [SerializeField] SquarePlayer squarePrefab;
-    [SerializeField] EnemyTile enemyPrefab;
+
+    [SerializeField] List<GameObject> prefabList = new List<GameObject>();
 
 
     bool spawn = true;
@@ -23,10 +23,11 @@ public class ShapeSpawner : MonoBehaviour
 
     private void SpawnShapes()
     {
-        SquarePlayer newSquare = Instantiate
-            (squarePrefab, transform.position, transform.rotation)
-            as SquarePlayer;
-        newSquare.transform.parent = transform;
+        int prefabIndex = Random.Range(0, 2);
+        GameObject newShape = Instantiate
+            (prefabList[prefabIndex], transform.position, transform.rotation)
+            as GameObject;
+        newShape.transform.parent = transform;
     }
 
     // Update is called once per frame

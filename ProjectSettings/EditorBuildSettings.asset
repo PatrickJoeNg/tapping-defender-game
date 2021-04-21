@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sandbox.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/StartScreen.unity
+    guid: 22cb10c205c88c34f8f7fb050603851e
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 6ce862babd9927949861d303c043715a
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: e5c81e8509dd9ce4c81d3c4d0345fb01
   m_configObjects: {}
