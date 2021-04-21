@@ -6,19 +6,19 @@ using UnityEngine;
 public class TimerDisplay : MonoBehaviour
 { 
     [SerializeField] TextMeshProUGUI timerText;
-    GameSession gameSession;
+    GameTimer gameTimer;
     
 
     // Start is called before the first frame update
     void Start()
     {
         timerText = GetComponent<TextMeshProUGUI>();
-        gameSession = FindObjectOfType<GameSession>();
+        gameTimer = FindObjectOfType<GameTimer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timerText.text = Mathf.RoundToInt(gameSession.GetTimeRemaining()).ToString();
+        timerText.text = Mathf.RoundToInt(gameTimer.GetTimeRemaining()).ToString();
     }
 }
