@@ -6,7 +6,6 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int score = 0;
-
     void Awake()
     {
         SetUpSingleton();
@@ -19,12 +18,12 @@ public class GameSession : MonoBehaviour
         if (numOfGameSessions > 1)
         {
             Destroy(gameObject);
-        }else
+        } else
         {
             DontDestroyOnLoad(gameObject);
         }
     }
-    
+
     public int GetScore()
     {
         return score;
@@ -43,5 +42,6 @@ public class GameSession : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
+    
 }
+

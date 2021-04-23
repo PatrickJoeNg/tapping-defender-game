@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
     void Awake()
     {
         SetUpSingleton();
@@ -21,5 +22,6 @@ public class MusicPlayer : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
 }
 
