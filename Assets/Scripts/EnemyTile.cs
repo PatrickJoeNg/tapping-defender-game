@@ -6,6 +6,7 @@ public class EnemyTile : MonoBehaviour
 {
     [SerializeField] int scoreValue = 50;
     [SerializeField] float moveSpeed = 2f;
+    [SerializeField] GameObject explosionFX;
 
     Rigidbody2D rb;
 
@@ -22,9 +23,17 @@ public class EnemyTile : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             Debug.Log("Diamond clicked");
-            Destroy(gameObject);
+            EnemyTapped();
             SubFromScore(scoreValue);
         }
+    }
+
+    private void EnemyTapped()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(explosionFX,
+            transform.position,
+            transform.rotation) as GameObject;
     }
 
     private void FixedUpdate()

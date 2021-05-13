@@ -7,6 +7,7 @@ public class SquarePlayer : MonoBehaviour
 {
     [SerializeField] int scoreValue = 100;
     [SerializeField] float moveSpeed = 2f;
+    [SerializeField] GameObject explosionFX;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -22,9 +23,16 @@ public class SquarePlayer : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             Debug.Log("Square clicked");
-            Destroy(gameObject);
+            SquareTapped();
             AddToScore(scoreValue);
-        }     
+        }
+    }
+
+    private void SquareTapped()
+    {
+
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation) as GameObject;
     }
 
     private void FixedUpdate()
