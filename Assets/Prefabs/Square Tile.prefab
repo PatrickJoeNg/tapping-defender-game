@@ -126,6 +126,7 @@ MonoBehaviour:
   scoreValue: 100
   moveSpeed: 150
   explosionFX: {fileID: 2499828939531052604, guid: 0b372be199044394fb4eeae492b6ec27, type: 3}
+  destroyExplosion: 1.5
 --- !u!50 &2090087862
 Rigidbody2D:
   serializedVersion: 4

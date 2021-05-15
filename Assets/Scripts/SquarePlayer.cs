@@ -8,6 +8,7 @@ public class SquarePlayer : MonoBehaviour
     [SerializeField] int scoreValue = 100;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] GameObject explosionFX;
+    [SerializeField] float destroyExplosion = 2f;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class SquarePlayer : MonoBehaviour
 
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation) as GameObject;
+        Destroy(explosion, destroyExplosion);
     }
 
     private void FixedUpdate()

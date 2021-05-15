@@ -7,6 +7,7 @@ public class EnemyTile : MonoBehaviour
     [SerializeField] int scoreValue = 50;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] GameObject explosionFX;
+    [SerializeField] float destroyExplosion = 2f;
 
     Rigidbody2D rb;
 
@@ -34,6 +35,8 @@ public class EnemyTile : MonoBehaviour
         GameObject explosion = Instantiate(explosionFX,
             transform.position,
             transform.rotation) as GameObject;
+
+        Destroy(explosion, destroyExplosion);
     }
 
     private void FixedUpdate()

@@ -147,3 +147,4 @@ MonoBehaviour:
   scoreValue: 50
   moveSpeed: 150
   explosionFX: {fileID: 5709226369406660850, guid: ab5dfa0311d479c4995016565dfa4dd8, type: 3}
+  destroyExplosion: 1.5
